@@ -7,6 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.containsString;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -17,11 +18,11 @@ class Rsue3labsApplicationTests {
 
     @Test
     public void testHomePage() throws Exception {
-        mockMvc.perform(post("/"))
+        mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("home"))
                 .andExpect(content().string(
-                        containsString("Welcome to...")
+                        containsString("Добро пожаловать")
                 ));
     }
 }
