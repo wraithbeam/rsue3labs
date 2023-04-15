@@ -1,5 +1,6 @@
 package com.example.rsue3labs.models;
 
+import com.example.rsue3labs.models.person.Person;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
