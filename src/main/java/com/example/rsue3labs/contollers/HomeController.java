@@ -1,4 +1,4 @@
-package com.example.rsue3labs;
+package com.example.rsue3labs.contollers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
