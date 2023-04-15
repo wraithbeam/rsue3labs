@@ -1,5 +1,7 @@
-package com.example.rsue3labs.models;
+package com.example.rsue3labs.models.agreement;
 
+import com.example.rsue3labs.models.status.StatusAgreement;
+import com.example.rsue3labs.models.type.TypeAgreement;
 import com.example.rsue3labs.models.person.Person;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
@@ -19,10 +21,11 @@ public class Agreement {
     private Date dateOpen;
     private Date dateClose;
 
-    public Agreement(Person person, TypeAgreement typeAgreement, StatusAgreement statusAgreement, long numberAgreement, Date dateOpen, Date dateClose) {
-        this.personId = person.getId();
-        this.typeAgreementId = typeAgreement.getId();
-        this.statusAgreementId = statusAgreement.getId();
+    public Agreement(long id, long person, long typeAgreement, long statusAgreement, long numberAgreement, Date dateOpen, Date dateClose) {
+        this.id = id;
+        this.personId = person;
+        this.typeAgreementId = typeAgreement;
+        this.statusAgreementId = statusAgreement;
         this.numberAgreement = numberAgreement;
         this.dateOpen = dateOpen;
         this.dateClose = dateClose;

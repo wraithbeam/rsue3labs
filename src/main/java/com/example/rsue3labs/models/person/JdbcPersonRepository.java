@@ -1,5 +1,6 @@
 package com.example.rsue3labs.models.person;
 
+import com.example.rsue3labs.utils.SampleRepository;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -9,17 +10,14 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class JdbcPersonRepository implements PersonRepository {
-    private JdbcTemplate jdbcTemplate;
-
+public class JdbcPersonRepository extends SampleRepository<Person> {
     public JdbcPersonRepository(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
+        super(jdbcTemplate);
     }
 
     @Override
     public Iterable<Person> findAll() {
-        return jdbcTemplate.query(
-                "select * from Person", this::mapRowToPerson);
+        return jdbcTemplate.query("select * from Person", this::mapRowToPerson);
     }
 
     @Override

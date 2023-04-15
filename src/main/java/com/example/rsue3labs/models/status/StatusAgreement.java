@@ -1,4 +1,4 @@
-package com.example.rsue3labs.models;
+package com.example.rsue3labs.models.status;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
@@ -10,4 +10,9 @@ public class StatusAgreement {
     @Id
     private long id;
     private String status;
+
+    public StatusAgreement(long id, String status) {
+        this.id = id;
+        this.status = status;
+    }
 }
