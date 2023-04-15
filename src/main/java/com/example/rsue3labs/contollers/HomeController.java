@@ -1,15 +1,18 @@
 package com.example.rsue3labs.contollers;
 
-import com.example.rsue3labs.models.agreement.JdbcAgreementRepo;
-import org.springframework.jdbc.core.JdbcTemplate;
+import com.example.rsue3labs.repository.StatusAgreementRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class HomeController {
+    @Autowired
+    private StatusAgreementRepository agreementRepository;
+
     @GetMapping("/")
     public String home() {
-        var a = new JdbcAgreementRepo(new JdbcTemplate()).findAll();
+        agreementRepository.findAll();
         return "home";
     }
 }
