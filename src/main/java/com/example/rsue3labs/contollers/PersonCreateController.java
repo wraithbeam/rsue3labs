@@ -2,10 +2,12 @@ package com.example.rsue3labs.contollers;
 
 import com.example.rsue3labs.entity.Person;
 import com.example.rsue3labs.repository.PersonRepository;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
@@ -36,8 +38,11 @@ public class PersonCreateController {
 
     @PostMapping
     public String processPerson(
-            @ModelAttribute Person person,
+            @Valid @ModelAttribute Person person, Errors errors,
             @RequestParam(name = "cb_physical", required = false) boolean isPhysical) {
+        if (errors.hasErrors())
+            return "create-person";
+
         person.setDate(new Date(System.currentTimeMillis()));
         processType(person, isPhysical);
         personRepository.save(person);

@@ -8,14 +8,20 @@
 </head>
 <body>
 <h1>Добавьте нового клиента!</h1>
-<img th:src="@{/img/logo.jpg}"/>
+<img th:src="@{/img/logo.png}">
 <form th:action="@{/create-person}" method="POST" th:object="${person}">
     <div class="grid">
         <div id="wraps" class="ingredient-group">
             <input th:field="*{shifer}" type="text" placeholder="Введите шифр...">
+            <span class="validationError"
+                  th:if="${#fields.hasErrors('shifer')}"
+                  th:errors="*{shifer}">Shifer Error</span>
         </div>
         <div class="ingredient-group" id="proteins">
             <input th:field="*{inn}" type="text" placeholder="Введите ИНН...">
+            <span class="validationError"
+                  th:if="${#fields.hasErrors('shifer')}"
+                  th:errors="*{inn}">Inn Error</span>
         </div>
         <div class="ingredient-group" id="cheeses">
             <div>
