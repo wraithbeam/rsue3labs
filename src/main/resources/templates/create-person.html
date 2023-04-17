@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Новый клиент</title>
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
+</head>
+<body>
+<h1>Добавьте нового клиента!</h1>
+<img th:src="@{/img/logo.jpg}"/>
+<form th:action="@{/create-person}" method="POST" th:object="${person}">
+    <div class="grid">
+        <div id="wraps" class="ingredient-group">
+            <input th:field="*{shifer}" type="text" placeholder="Введите шифр...">
+        </div>
+        <div class="ingredient-group" id="proteins">
+            <input th:field="*{inn}" type="text" placeholder="Введите ИНН...">
+        </div>
+        <div class="ingredient-group" id="cheeses">
+            <div>
+                <input type="checkbox" id="cb_physical"/>
+                <label for="cb_physical">Физическое лицо</label>
+                <input type="checkbox" id="cb_juridical"/>
+                <label for="cb_juridical">Юридическое лицо</label>
+            </div>
+        </div>
+        <button>Добавить</button>
+    </div>
+</form>
+</body>
+</html>
