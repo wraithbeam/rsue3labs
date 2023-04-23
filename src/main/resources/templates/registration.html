@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>online-store</title>
+</head>
+<body>
+<h1>Регистрация нового пользователя</h1>
+<img th:src="@{/img/logo.png}">
+<form method="POST" th:action="@{/register}" id="registerForm">
+    <label for="username">Имя пользователя: </label>
+    <input id="username" type="text" name="username"/><br/>
+    <label for="password">Пароль:</label>
+    <input id="password" type="password" name="password"/><br/>
+    <label for="confirm">Повторите пароль: </label>
+    <input id="confirm" type="password" name="confirm"/><br/>
+    <label for="fullname">Полное имя: </label>
+    <input id="fullname" type="text" name="fullname"/><br/>
+    <input type="submit" value="Регистрация"/>
+</form>
+</body>
+</html>
