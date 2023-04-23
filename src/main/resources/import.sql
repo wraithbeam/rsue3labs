@@ -1,1 +1,0 @@
-insert into status_agreement (id, status) values (6, 'Действует'), (7, 'Блокирован');

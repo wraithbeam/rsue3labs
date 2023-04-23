@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Новый договор</title>
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
+</head>
+<body>
+<h1>Добавьте новый договор!</h1>
+<img th:src="@{/img/logo.png}">
+<form th:action="@{/create-agreement}" method="POST" th:object="${agreement}">
+    <div class="grid">
+        <div id="number" class="ingredient-group">
+            <input th:field="${agreement.numberAgreement}" type="number" placeholder="Введите номер...">
+        </div>
+        <div id="clients" class="ingredient-group">
+            <h3>Код клиента:</h3>
+            <select th:field="${agreement.personId}" class="form-control" id="clientsDropDownList">
+                <option th:each="person : ${persons}"
+                        th:value="${person.id}"
+                        th:text="${person.shifer}">
+                </option>
+            </select>
+        </div>
+        <div id="type" class="ingredient-group">
+            <h2>Тип:</h2>
+            <select th:field="${agreement.typeAgreementId}" class="form-control" id="typeDropDownList">
+                <option th:each="type : ${types}"
+                        th:value="${type.id}"
+                        th:text="${type.type}">
+                </option>
+            </select>
+        </div>
+        <div id="status" class="ingredient-group">
+            <h2>Статус:</h2>
+            <select th:field="${agreement.statusAgreementId}" class="form-control" id="statusDropDownList">
+                <option th:each="status : ${statuses}"
+                        th:value="${status.id}"
+                        th:text="${status.status}">
+                </option>
+            </select>
+        </div>
+        <button>Добавить</button>
+    </div>
+    </div>
+</form>
+</body>
+</html>

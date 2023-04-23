@@ -20,11 +20,11 @@ import static com.example.rsue3labs.utils.Consts.PHYSICAL;
 @Controller
 @Slf4j
 @RequestMapping("/create-person")
-public class PersonCreateController {
+public class CreatingPersonController {
     private final PersonRepository personRepository;
 
     @Autowired
-    PersonCreateController(PersonRepository personRepo) {
+    CreatingPersonController(PersonRepository personRepo) {
         personRepository = personRepo;
     }
 
@@ -43,7 +43,7 @@ public class PersonCreateController {
         if (errors.hasErrors())
             return "create-person";
 
-        person.setDate(new Date(System.currentTimeMillis()));
+        person.setRegistrationDate(new Date(System.currentTimeMillis()));
         processType(person, isPhysical);
         personRepository.save(person);
         log.info("Added: {}", person);
