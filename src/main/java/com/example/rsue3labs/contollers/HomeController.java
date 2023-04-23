@@ -9,9 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Slf4j
 @Controller
 public class HomeController {
-    @Autowired
-    private StatusAgreementRepository statusRepository;
-
     @GetMapping("/")
     public String home() {
         return "home";
