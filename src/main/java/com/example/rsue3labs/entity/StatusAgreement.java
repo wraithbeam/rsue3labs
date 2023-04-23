@@ -6,6 +6,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "status_agreement")
 public class StatusAgreement {
@@ -13,4 +14,12 @@ public class StatusAgreement {
     @GeneratedValue
     private long id;
     private String status;
+
+    @Override
+    public String toString() {
+        return "StatusAgreement{" +
+                "id=" + id +
+                ", status='" + status + '\'' +
+                '}';
+    }
 }

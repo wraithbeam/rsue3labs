@@ -6,7 +6,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 import java.sql.Date;
@@ -28,7 +27,7 @@ public class Person {
 
     private String type;
 
-    private Date date;
+    private Date registrationDate;
 
     @Override
     public String toString() {
@@ -37,7 +36,7 @@ public class Person {
                 ", shifer='" + shifer + '\'' +
                 ", inn=" + inn +
                 ", type='" + type + '\'' +
-                ", date=" + date +
+                ", date=" + registrationDate +
                 '}';
     }
 }
